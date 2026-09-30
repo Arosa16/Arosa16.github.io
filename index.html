@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Rosa | Management Student & Business Leader</title>
+    <!-- Google Fonts for professional typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           CSS RESET & BASE STYLES
+           ================================---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333333;
+            background-color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ==========================================
+           COLOR PALETTE & VARIABLES
+           ================================---------- */
+        :root {
+            --primary: #0f172a;       /* Deep Slate Blue - Professional & Trustworthy */
+            --secondary: #1e3a8a;     /* Rich Navy - Accent & Headers */
+            --accent: #2563eb;        /* Vibrant Blue - Links & Interactive Elements */
+            --bg-light: #ffffff;      /* Pure White for Cards/Sections */
+            --bg-alt: #f1f5f9;        /* Soft Gray Alt Background */
+            --text-main: #334155;     /* Readable Dark Gray Text */
+            --text-muted: #64748b;    /* Subdued Text for Metadata */
+            --border-color: #e2e8f0;  /* Clean Border Separator */
+            --radius: 8px;            /* Standardized Border Radius */
+            --transition: all 0.3s ease;
+        }
+
+        /* ==========================================
+           HEADER & NAVIGATION
+           ================================---------- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ==========================================
+           HERO SECTION
+           ================================---------- */
+        .hero {
+            padding: 9rem 2rem 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #93c5fd;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           CONTAINER & SECTION LAYOUTS
+           ================================---------- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2.section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* ==========================================
+           CARDS & GRID COMPONENTS
+           ================================---------- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .card .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .card p {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills-tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background-color: var(--bg-alt);
+            color: var(--secondary);
+            font-size: 0.8rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* ==========================================
+           ABOUT ME SECTION SPECIFIC
+           ================================---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+            border: 2px dashed #94a3b8;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            font-size: 1.05rem;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item h4 {
+            font-size: 1.75rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* ==========================================
+           SKILLS CATEGORIZED GRID
+           ================================---------- */
+        .skills-category-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+
+        .skills-category-card h3 {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .skills-category-card p {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        /* ==========================================
+           CONTACT & FOOTER
+           ================================---------- */
+        .contact-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-card p {
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-weight: 500;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--primary);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================
+           RESPONSIVE MEDIA QUERIES
+           ================================---------- */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                display: none; /* Can be expanded with a hamburger toggle if needed */
+            }
+
+            .nav-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         NAVIGATION BAR
+         ================================---------- -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Anthony Rosa</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION
+         ================================---------- -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Anthony Rosa</h1>
+            <div class="subtitle">Management Student | Hockey Captain & Coach | Aspiring Business Leader</div>
+            <p>Studying Management at the University of New Haven with a 3.88 GPA, building practical expertise in operations, leadership, retail, and real estate.</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         ABOUT ME SECTION
+         ================================---------- -->
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <!-- Space for profile photo -->
+            <div class="profile-placeholder">
+                [ Insert Profile Photo Here ]<br><small style="font-weight: normal; margin-top: 5px; display:block;">Recommended ratio: Square or Portrait</small>
+            </div>
+            <div class="about-text">
+                <p>I’m pursuing a Bachelor of Science in Management at the University of New Haven, with an expected graduation in May 2029. I’ve earned a 3.88 GPA and Dean’s List recognition while balancing rigorous academics, work, and competitive athletics.</p>
+                <p>My academic focus centers on leadership, operations management, real estate, finance, and business strategy. Working hands-on at Blueline Pro Shop has allowed me to manage daily store operations, assist customers, and take accountability for retail performance.</p>
+                <p>Hockey shapes much of my character. As captain and vice president of the University of New Haven Club Hockey Team, I lead teammates and support organizational workflows. Coaching younger athletes has taught me how to communicate clearly, adapt my approach, and foster confidence in others.</p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h4>3.88</h4>
+                        <p>Cumulative GPA</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Dean's List</h4>
+                        <p>Academic Honoree</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         ACADEMIC PROJECTS & LEARNING
+         ================================---------- -->
+    <section id="projects" class="container" style="background-color: var(--bg-alt); max-width: 100%;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title">Academic Projects & Learning</h2>
+            <div class="grid-2">
+                <!-- Project 1 -->
+                <div class="card">
+                    <h3>AI and Machine Learning</h3>
+                    <div class="card-meta">Clear, Precise Prompting</div>
+                    <p>Learning how to write precise prompts that effectively communicate requirements to AI tools. This coursework helps me practice defining tasks clearly, structuring relevant context, and outlining desired outcomes.</p>
+                    <div class="skills-tag-list">
+                        <span class="skill-tag">Written Communication</span>
+                        <span class="skill-tag">Problem Definition</span>
+                        <span class="skill-tag">AI Literacy</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card">
+                    <h3>Marketing Strategy</h3>
+                    <div class="card-meta">Sports Drink Concept</div>
+                    <p>Presented a specialized sports drink concept featuring low sugar and carbohydrate levels with built-in electrolyte hydration. Bridged my passion for athletics with practical business product communication.</p>
+                    <div class="skills-tag-list">
+                        <span class="skill-tag">Product Communication</span>
+                        <span class="skill-tag">Presentation</span>
+                        <span class="skill-tag">Marketing Strategy</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card">
+                    <h3>Excel Coursework</h3>
+                    <div class="card-meta">Data & Spreadsheets</div>
+                    <p>Building core familiarity with Microsoft Excel spreadsheets, data management, and operational modeling to establish a strong analytical foundation for business finance and strategy.</p>
+                    <div class="skills-tag-list">
+                        <span class="skill-tag">Spreadsheets</span>
+                        <span class="skill-tag">Organization</span>
+                        <span class="skill-tag">Analytical Thinking</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="card">
+                    <h3>Real Estate Research</h3>
+                    <div class="card-meta">Independent Study</div>
+                    <p>Independently examining residential and commercial real estate markets, investment strategies, and valuation concepts by following economic indicators and market trends.</p>
+                    <div class="skills-tag-list">
+                        <span class="skill-tag">Market Analysis</span>
+                        <span class="skill-tag">Valuation Concepts</span>
+                        <span class="skill-tag">Strategic Planning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         EXPERIENCE & LEADERSHIP
+         ================================---------- -->
+    <section id="experience" class="container">
+        <h2 class="section-title">Experience & Leadership</h2>
+        <div class="grid-2">
+            <!-- Role 1 -->
+            <div class="card">
+                <h3>Blueline Pro Shop</h3>
+                <div class="card-meta">Store Associate / Acting Store Lead | Fall 2024–Present</div>
+                <p>Independently manage daily store operations during assigned shifts, assist customers with specialized equipment decisions, execute POS transactions, monitor inventory levels, and perform expert skate sharpening services.</p>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="card">
+                <h3>Private Ice Hockey Training</h3>
+                <div class="card-meta">Skills Coach | 2021–Present</div>
+                <p>Coach individuals and small groups in advanced skating, puck handling, and overall game development. Build tailored training schedules, analyze performance footage, and deliver actionable feedback.</p>
+            </div>
+
+            <!-- Role 3 -->
+            <div class="card">
+                <h3>Construction General Laborer</h3>
+                <div class="card-meta">General Laborer | Ongoing</div>
+                <p>Support residential and commercial construction sites through site preparation, material handling, cleanup, and logistical assistance. Work alongside tradespeople to build strong work ethic and adaptability.</p>
+            </div>
+
+            <!-- Role 4 -->
+            <div class="card">
+                <h3>UNH Club Hockey Team</h3>
+                <div class="card-meta">Captain & Vice President | 2026–Present</div>
+                <p>Lead teammates on and off the ice while coordinating team communication, scheduling, and logistical planning. Cultivate a high-accountability culture rooted in thorough preparation and team support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SKILLS & COMPETENCIES
+         ================================---------- -->
+    <section id="skills" class="container" style="background-color: var(--bg-alt); max-width: 100%;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title">Skills & Competencies</h2>
+            <div class="grid-2">
+                <div class="skills-category-card">
+                    <h3>Business Operations</h3>
+                    <p>Retail operations, inventory control, cash handling, and dedicated customer service.</p>
+                </div>
+                <div class="skills-category-card">
+                    <h3>Leadership & Communication</h3>
+                    <p>Team leadership, athletic coaching, public presentations, and constructive feedback delivery.</p>
+                </div>
+                <div class="skills-category-card">
+                    <h3>Technology & Software</h3>
+                    <p>Microsoft Excel, Word, PowerPoint, Google Sheets, and comprehensive Google Workspace.</p>
+                </div>
+                <div class="skills-category-card">
+                    <h3>Analysis & Research</h3>
+                    <p>Video breakdown, foundational data analysis, and independent real estate market research.</p>
+                </div>
+                <div class="skills-category-card">
+                    <h3>AI Literacy</h3>
+                    <p>Formulating clear, precise prompts through targeted AI/ML academic coursework.</p>
+                </div>
+                <div class="skills-category-card">
+                    <h3>Work Habits</h3>
+                    <p>Active problem-solving, adaptability under pressure, rigorous organization, and time management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CAREER GOALS & INTERESTS
+         ================================---------- -->
+    <section id="goals" class="container">
+        <h2 class="section-title">Career Goals & Interests</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <p><strong>Family Business Succession:</strong> One of my long-term ambitions is to eventually take over my mother’s real estate company, equipping myself with the management, financial, and operational acumen required to lead sustainably.</p>
+            <p><strong>Athletic Aspirations:</strong> I am actively exploring opportunities to play professional ice hockey in Europe, embracing the discipline and teamwork required at elite levels.</p>
+            <p><strong>Professional Pathways:</strong> As I progress through my education at the University of New Haven, I am evaluating corporate business roles as well as careers in law enforcement or firefighting—sectors defined by high responsibility, teamwork, and meaningful community contribution.</p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CONTACT SECTION
+         ================================---------- -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-card">
+            <p>I welcome conversations about business internships, real estate opportunities, leadership, and pathways to learn and contribute.</p>
+            <div class="contact-info">
+                <div>Email: <a href="mailto:Arosa16@unh.newhaven.edu" style="color: var(--accent);">Arosa16@unh.newhaven.edu</a></div>
+                <div>LinkedIn: <a href="https://linkedin.com" target="_blank" style="color: var(--accent);">Connect with Anthony Rosa</a></div>
+                <div>Location: West Haven, CT</div>
+            </div>
+            <a href="mailto:Arosa16@unh.newhaven.edu" class="btn">Send an Email</a>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ================================---------- -->
+    <footer>
+        <p>&copy; 2026 Anthony Rosa. All rights reserved. Built for GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
